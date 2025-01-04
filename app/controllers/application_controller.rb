@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
   def authorize_request
     begin
-      byebug
       token = request.headers['Authorization'].split(' ').last
       decoded = JsonWebToken.decode(token)
 
