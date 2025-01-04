@@ -1,0 +1,9 @@
+development:
+  #datos para conexion a la base de datos
+  db_name: automotive-service-control
+  db_user_name: root
+  db_password: 12345
+  db_host: localhost
+
+  #Cors access
+  url_cors: 'http://localhost:4200'
