@@ -13,6 +13,15 @@ class MaintenanceServiceController < ApplicationController
   end
 
   def show
+    begin
+      maintenance_services = MaintenanceService.where(car_id: Car.find_by(slug: params[:id]).id)
+
+      maintenance_services.nil? ? render_not_found("Maintenance Service not found") : render(json: maintenance_services)
+
+    rescue Exception => e
+      Rails.logger.debug("Error interno: #{e.message}")
+      handle_internal_server_error(e)
+    end
   end
 
   def create

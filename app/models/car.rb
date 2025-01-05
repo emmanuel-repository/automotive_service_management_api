@@ -31,7 +31,7 @@ class Car < ApplicationRecord
   def self.updateCar(data)
 
     carParams = {
-      plate_number: data[:plateNumber],
+      plate_number: data[:plate_number],
       model: data[:model],
       year: data[:year]
     }

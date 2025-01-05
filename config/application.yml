@@ -6,4 +6,4 @@ development:
   db_host: localhost
 
   #Cors access
-  url_cors: 'http://localhost:4200'
+  url_cors: 'http://localhost:5173'

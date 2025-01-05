@@ -2,6 +2,7 @@ class CarController < ApplicationController
 
   def index
     begin
+
       cars = Car.all
 
       cars.any? ? render(json: cars) : render_not_found("Car not found")

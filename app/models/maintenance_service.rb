@@ -1,4 +1,6 @@
 class MaintenanceService < ApplicationRecord
+  validate :date_in_the_past_or_present
+  validates :description, presence: true
 
   belongs_to :car
 
@@ -42,4 +44,10 @@ class MaintenanceService < ApplicationRecord
     return  MaintenanceService.find_by(slug: id).destroy
   end
 
+  private
+  def date_in_the_past_or_present
+    if date.present? && date > Date.today
+      errors.add(:date, "debe ser una fecha pasada o presente")
+    end
+  end
 end
